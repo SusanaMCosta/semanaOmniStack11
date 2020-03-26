@@ -10,7 +10,7 @@ import {Link, useHistory} from 'react-router-dom';
 import logo from '../../assets/logo.svg';
 
 export default function Logon(){
-    const [id, setId] = useState('');
+    const [id, setId] = useState();
     const history = useHistory();
 
     async function handleLogin(e){
@@ -19,7 +19,7 @@ export default function Logon(){
         try{
             const response = await api.post('sessions', { id });
 
-            localStorage.setItem('ongID', id);
+            localStorage.setItem('ongId', id);
             localStorage.setItem('ongName', response.data.name);
 
             history.push('/profile');
