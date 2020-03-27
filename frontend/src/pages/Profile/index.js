@@ -14,13 +14,14 @@ export default function Profile(){
     const history = useHistory();
 
     const ongId = localStorage.getItem('ongId');
+    console.log(ongId);
     const ongName = localStorage.getItem('ongName');
 
 
     useEffect(() => {
         api.get('profile', {
             headers: {
-                Authorization: ongId,
+                authorization: ongId,
             }
         }).then(response => {
             setIncidents(response.data);
@@ -31,7 +32,7 @@ export default function Profile(){
         try{
             await api.delete(`incidents/${id}`,{
                 headers: {
-                    Authorization: ongId,
+                    authorization: ongId,
                 }
             });
 
